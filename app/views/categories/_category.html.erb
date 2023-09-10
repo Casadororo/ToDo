@@ -1,0 +1,21 @@
+<div id="<%= dom_id category %>" class="card">
+  <div class="card-header text-start">
+  <div class="row justify-content-between">
+    <div class="col-auto">
+      <%= category.id %> - <%= category.name %>
+    </div>
+    <div class="col-1">
+      <i class="bi bi-plus" style="font:14"></i>
+    </div>
+  </div>
+  </div>
+  <div class="card-body">
+    <div class="row row-cols-1 row-cols-md-1">
+      <% category.bubbles.each do |bubble| %>
+      <div class="col">
+        <%= render bubble %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
