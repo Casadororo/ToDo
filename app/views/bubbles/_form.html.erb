@@ -11,6 +11,47 @@
     </div>
   <% end %>
 
+<div class="row mb-3">
+  <div class="col-sm">
+    <div class="input-group">
+      <span class="input-group-text" id="basic-addon1">
+        <i class="bi bi-card-heading"></i>
+      </span>
+      <%= form.text_field :name, type:"text", class:"form-control", placeholder:"Card Name", arialabel:"Card Name", ariadescribedby:"basic-addon1" %>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="input-group">
+      <span class="input-group-text" id="basic-addon1">
+        <i class="bi bi-palette2"></i>
+      </span>
+      <%= form.color_field :color, class:"form-control form-control-color", value:"#f8f9fa", title:"Card Color"%>
+    </div>
+  </div>
+</div>
+
+<div class="row mb-3">
+  <div class="col-sm">
+    <div class="input-group">
+      <span class="input-group-text">Limite Date</span>
+      <%= form.date_field :date, class:"form-control", arialabel:"Date" %>
+    </div>
+  </div>
+  <% if !defined?(partial_category_id) %>
+  <div class="col-sm-3">
+    <div class="input-group">
+      <span class="input-group-text">Category</span>
+      <%= form.date_field :date, class:"form-control", arialabel:"Date" %>
+    </div>
+  </div>
+  <% end %>
+</div>  
+
+<div class="input-group">
+  <span class="input-group-text">Description</span>
+  <%= form.text_area :description, class:"form-control", arialabel:"Description" %>
+</div>
+
   <div>
     <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
@@ -28,7 +69,7 @@
 
   <div>
     <%= form.label :category_id, style: "display: block" %>
-    <%= form.number_field :category_id %>
+    <%= form.text_field :category_id %>
   </div>
 
   <div>
