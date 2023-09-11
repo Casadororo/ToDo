@@ -44,9 +44,9 @@
   </div>
   
   <div class="input-group mb-3">
-    <span class="input-group-text">Category <%= category_id %></span>
+    <span class="input-group-text">Category</span>
     <% if defined?(@categories) %>
-      <%= form.select :category_id, @categories.all.collect{ |c| [c.name, c.id] }, {select: category_id}, {class:"form-select", arialabel:"Category"} %>
+      <%= form.select :category_id, @categories.all.collect{ |c| [c.name, c.id] }, {selected: partial_category_id}, {class:"form-select", arialabel:"Category"} %>
     <%end%>
   </div>
 

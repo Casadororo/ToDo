@@ -11,7 +11,6 @@
     <% @categories.each do |category| %>
     <div class="col">
     <%= link_to "Show this category", category %> <br/>
-    <%= link_to "Add Bubble", new_bubble_path %>
       <%= render category %>
     </div>
     <% end %>
