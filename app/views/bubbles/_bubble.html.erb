@@ -5,4 +5,9 @@
     <p class="card-text"><%= bubble.description %></p>
     <%= link_to edit_bubble_path(bubble), class: 'nav-link stretched-link', data:{turbo: true, turbo_frame: "modal"} do%> <%end%>
   </div>
+  <% if bubble.date? %>
+  <div class="card-footer text-body-secondary">
+    <%= bubble.date.strftime("%F") %>
+  </div>
+  <% end  %>
 </div>

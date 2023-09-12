@@ -78,6 +78,6 @@ class BubblesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def bubble_params
-    params.require(:bubble).permit(:name, :description, :priority, :category_id, :color)
+    params.require(:bubble).permit(:name, :description, :priority, :category_id, :color, :date)
   end
 end
