@@ -14,6 +14,7 @@ class BubblesController < ApplicationController
   # GET /bubbles/new
   def new
     @bubble = Bubble.new
+    @bubble.color =  "#f8f9fa"
     @categories = Category.all
   end
 
@@ -69,6 +70,6 @@ class BubblesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def bubble_params
-      params.require(:bubble).permit(:name, :description, :priority, :category_id)
+      params.require(:bubble).permit(:name, :description, :priority, :category_id, :color)
     end
 end
