@@ -6,7 +6,7 @@
       <%= link_to edit_category_path(category), class: 'nav-link stretched-link', data:{turbo: true, turbo_frame: "modal"} do%> <%end%>
     </div>
     <div class="col-2">
-      <%= link_to new_bubble_path, class: 'nav-link', data:{turbo: true, turbo_frame: "modal"} do%>
+      <%= link_to new_bubble_path(category_id: category.id), class: 'nav-link', data:{turbo: true, turbo_frame: "modal"} do%>
         <i class="bi bi-plus h3"></i>
       <%end%>
     </div>

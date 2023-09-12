@@ -13,6 +13,7 @@ class BubblesController < ApplicationController
   # GET /bubbles/new
   def new
     @bubble = Bubble.new
+    @bubble.category_id = params[:category_id]
     @bubble.color = "#f8f9fa"
     @categories = Category.all
   end
