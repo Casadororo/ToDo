@@ -3,6 +3,6 @@
   <div class="card-body">
     <h5 class="card-title">priority: <%= bubble.priority %> category_id: <%= bubble.category_id %> </h5>
     <p class="card-text"><%= bubble.description %></p>
-    <%= link_to new_bubble_path, class: 'nav-link stretched-link', data:{turbo: true, turbo_frame: "modal"} do%> <%end%>
+    <%= link_to edit_bubble_path(bubble), class: 'nav-link stretched-link', data:{turbo: true, turbo_frame: "modal"} do%> <%end%>
   </div>
 </div>

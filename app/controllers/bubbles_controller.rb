@@ -14,10 +14,13 @@ class BubblesController < ApplicationController
   # GET /bubbles/new
   def new
     @bubble = Bubble.new
+    @categories = Category.all
   end
 
   # GET /bubbles/1/edit
   def edit
+    categories_controller = CategoriesController.new
+    @categories = Category.all
   end
 
   # POST /bubbles or /bubbles.json

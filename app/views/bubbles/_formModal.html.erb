@@ -15,7 +15,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" >Card</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
     <div class="modal-body">
@@ -47,7 +47,7 @@
   <div class="input-group mb-3">
     <span class="input-group-text">Category</span>
     <% if defined?(@categories) %>
-      <%= form.select :category_id, @categories.all.collect{ |c| [c.name, c.id] }, {selected: partial_category_id}, {class:"form-select", arialabel:"Category"} %>
+      <%= form.select :category_id, @categories.all.collect{ |c| [c.name, c.id] }, {class:"form-select", arialabel:"Category"} %>
     <%end%>
   </div>
 
