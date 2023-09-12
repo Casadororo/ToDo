@@ -3,10 +3,6 @@
   <div class="card-body">
     <h5 class="card-title">priority: <%= bubble.priority %> category_id: <%= bubble.category_id %> </h5>
     <p class="card-text"><%= bubble.description %></p>
-    <%= link_to bubble, {:remote => true, 'data-bs-toggle' =>  "modal", 'data-bs-target' => '#editBubble' + bubble.id.to_s, class: 'nav-link stretched-link'} do%> <%end%>
+    <%= link_to new_bubble_path, class: 'nav-link stretched-link', data:{turbo: true, turbo_frame: "modal"} do%> <%end%>
   </div>
-</div>
-
-<div class="modal fade" id="editBubble<%=bubble.id%>" tabindex="-1" aria-hidden="true">
-  <%= render "bubbles/formModal", bubble: bubble, partial_category_id: bubble.category_id %>
 </div>

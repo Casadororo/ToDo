@@ -1,9 +1,3 @@
-<h1>New bubble</h1>
-
-<%= render "form", bubble: @bubble %>
-
-<br>
-
-<div>
-  <%= link_to "Back to bubbles", bubbles_path %>
-</div>
+<%= turbo_frame_tag "modal" do%>
+  <%= render "formModal", bubble: @bubble %>
+<% end %>

@@ -4,8 +4,8 @@
     <div class="col-auto">
       <%= category.id %> - <%= category.name %>
     </div>
-    <div class="col-1">
-      <%= link_to @bubble, {:remote => true, 'data-bs-toggle' =>  "modal", 'data-bs-target' => '#createBubble'+category.id.to_s, class: 'nav-link stretched-link'} do%>
+    <div class="col-2">
+      <%= link_to new_bubble_path, class: 'nav-link stretched-link', data:{turbo: true, turbo_frame: "modal"} do%>
         <i class="bi bi-plus h3"></i>
       <%end%>
     </div>
@@ -20,8 +20,4 @@
       <% end %>
     </div>
   </div>
-</div>
-
-<div class="modal fade" id="createBubble<%=category.id%>" tabindex="-1" aria-hidden="true">
-  <%= render "bubbles/formModal", bubble: Bubble.new, partial_category_id: category.id %>
 </div>
