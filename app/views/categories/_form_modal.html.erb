@@ -1,0 +1,32 @@
+<%= form_with(model: category) do |form| %>
+  <% if category.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+      <ul>
+        <% category.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="modal fade" tabindex="-1" data-controller="modal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">ToDo Category</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+        <div class="modal-body">
+        <div>
+        <div class="input-group input-group-lg">
+            <span class="input-group-text" id="inputGroup-sizing-lg">Name</span>
+            <%= form.text_field :name, class:"form-control", arialabel:"Sizing example input", ariadescribedby:"inputGroup-sizing-lg"%>
+        </div>
+        </div>
+    </div>
+        <div class="modal-footer">
+            <%= form.submit "Save changes", class:"btn btn-primary" %>
+        </div>
+</div>
+<% end %>

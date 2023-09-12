@@ -1,8 +1,8 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Categories
-<%= link_to new_category_path, class:"btn btn-default" do%>
-<h1><i class="bi bi-plus"></i></h1>
+<h1>Your ToDo List
+<%= link_to new_category_path, class:"btn btn-default", data: {turbo:true,  turbo_frame: "modal"} do%>
+  <h1><i class="bi bi-plus"></i></h1>
 <% end %>
 </h1> 
 
@@ -10,7 +10,6 @@
   <div class="row align-items-start">
     <% @categories.each do |category| %>
     <div class="col">
-    <%= link_to "Show this category", category %> <br/>
       <%= render category %>
     </div>
     <% end %>
