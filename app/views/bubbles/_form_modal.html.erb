@@ -26,7 +26,7 @@
       <span class="input-group-text" id="basic-addon1">
         <i class="bi bi-card-heading"></i>
       </span>
-      <%= form.text_field :name, type:"text", class:"form-control", placeholder:"Card Name", arialabel:"Card Name", ariadescribedby:"basic-addon1" %>
+      <%= form.text_field :name, type: "text", class: "form-control", placeholder: "Card Name", arialabel: "Card Name", ariadescribedby: "basic-addon1" %>
     </div>
   </div>
   <div class="col-sm-3">
@@ -34,35 +34,39 @@
       <span class="input-group-text" id="basic-addon1">
         <i class="bi bi-palette2"></i>
       </span>
-      <%= form.color_field :color, class:"form-control form-control-color", title:"Card Color"%>
+      <%= form.color_field :color, class: "form-control form-control-color", title: "Card Color" %>
     </div>
   </div>
 </div>
 
   <div class="input-group mb-3">
     <span class="input-group-text">Limite Date</span>
-    <%= form.date_field :date, class:"form-control", arialabel:"Date" %>
+    <%= form.date_field :date, class: "form-control", arialabel: "Date" %>
   </div>
   
   <div class="input-group mb-3">
     <span class="input-group-text">Category</span>
     <% if defined?(@categories) %>
-      <%= form.select :category_id, @categories.all.collect{ |c| [c.name, c.id] }, {class:"form-select", arialabel:"Category"} %>
-    <%end%>
+      <%= form.select :category_id, @categories.all.collect { |c| [c.name, c.id] }, { class: "form-select", arialabel: "Category" } %>
+    <% end %>
   </div>
 
 
 <div class="input-group">
   <span class="input-group-text">Description</span>
-  <%= form.text_area :description, class:"form-control", arialabel:"Description" %>
+<%= form.text_area :description, class: "form-control", arialabel: "Description" %>
 </div>
-
     </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <%= form.submit "Save changes", class:"btn btn-primary" %>
+          <% if bubble.id %>
+            <label for="delete" class="btn btn-danger">Delete</label>
+          <% end %>
+        <%= form.submit bubble.id? ? "Save" : "Create", class: "btn btn-primary" %>
       </div>
     </div>
   </div>
 </div>
+<% end %>
+<% if bubble.id %>
+  <%= button_to "", bubble_path(bubble), :method => "delete", id: "delete" %>
 <% end %>

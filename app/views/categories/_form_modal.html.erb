@@ -21,12 +21,18 @@
         <div>
         <div class="input-group input-group-lg">
             <span class="input-group-text" id="inputGroup-sizing-lg">Name</span>
-            <%= form.text_field :name, class:"form-control", arialabel:"Sizing example input", ariadescribedby:"inputGroup-sizing-lg"%>
+            <%= form.text_field :name, class: "form-control", arialabel: "Sizing example input", ariadescribedby: "inputGroup-sizing-lg" %>
         </div>
         </div>
     </div>
         <div class="modal-footer">
-            <%= form.submit "Save changes", class:"btn btn-primary" %>
+          <% if category.id %>
+            <label for="delete" class="btn btn-danger">Delete</label>
+          <% end %>
+            <%= form.submit category.id? ? "Save" : "Create", class: "btn btn-primary" %>
         </div>
 </div>
+<% end %>
+<% if category.id %>
+<%= button_to "", category_path(category), :method => "delete", id: "delete", class: "visually-hidden" %>
 <% end %>
