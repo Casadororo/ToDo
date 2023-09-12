@@ -30,7 +30,7 @@ class BubblesController < ApplicationController
 
     respond_to do |format|
       if @bubble.save
-        format.html { redirect_to bubble_url(@bubble), notice: "Bubble was successfully created." }
+        format.html { redirect_to categories_url, notice: "Bubble was successfully created." }
         format.json { render :show, status: :created, location: @bubble }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -43,7 +43,7 @@ class BubblesController < ApplicationController
   def update
     respond_to do |format|
       if @bubble.update(bubble_params)
-        format.html { redirect_to bubble_url(@bubble), notice: "Bubble was successfully updated." }
+        format.html { redirect_to categories_url, notice: "Bubble was successfully updated." }
         format.json { render :show, status: :ok, location: @bubble }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -57,7 +57,7 @@ class BubblesController < ApplicationController
     @bubble.destroy
 
     respond_to do |format|
-      format.html { redirect_to bubbles_url, notice: "Bubble was successfully destroyed." }
+      format.html { redirect_to categories_url, notice: "Bubble was successfully destroyed." }
       format.json { head :no_content }
     end
   end
