@@ -1,7 +1,6 @@
 <div id="<%= dom_id bubble %>" class="card border-light mb-3" <%= bubble.color? ? "style=border-color:"+bubble.color+"!important" : "" %>>
   <div class="card-header" <%= bubble.color? ? "style=background-color:"+bubble.color+"5c" : "" %>><%= bubble.name %></div>
   <div class="card-body">
-    <h5 class="card-title">priority: <%= bubble.priority %> category_id: <%= bubble.category_id %> color: <%= bubble.color %> </h5>
     <p class="card-text"><%= bubble.description %></p>
     <%= link_to edit_bubble_path(bubble), class: 'nav-link stretched-link', data:{turbo: true, turbo_frame: "modal"} do%> <%end%>
   </div>
