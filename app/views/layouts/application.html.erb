@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ToDo</title>
     <%= favicon_link_tag 'favicon.ico' %>
     <title>ToMeowDo</title>
 
@@ -19,8 +18,12 @@
   <body>
     <%= render "home/header" %>
     <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <% if notice %>
+        <p class="alert alert-warning"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-light"><%= alert %></p>
+      <% end %>
       <%= yield %>
       <%= turbo_frame_tag "modal" %>
     </div>
