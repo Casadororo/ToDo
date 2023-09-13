@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@rails/request.js": "^0.0.8",
+    "sortablejs": "^1.15.0",
+    "stimulus-sortable": "^4.1.1"
+  }
+}

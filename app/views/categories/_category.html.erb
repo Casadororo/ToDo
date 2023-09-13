@@ -13,12 +13,16 @@
   </div>
   </div>
   <div class="card-body">
-    <div class="row row-cols-1 row-cols-md-1">
-      <% category.bubbles.each do |bubble| %>
-      <div class="col">
+    <ul 
+    class="list-group"
+    data-controller="sortable" 
+    data-sortable-resource-name-value="bubble"
+    data-sortable-handle-value=".card">
+    <% category.bubbles.order(:position).each do |bubble| %>
+      <li class="list-group-item border-0 p-0" data-sortable-update-url="<%= update_position_path(bubble) %>">
         <%= render bubble %>
-      </div>
-      <% end %>
+      </li>
+    <% end %>
+  </ul>
     </div>
-  </div>
 </div>

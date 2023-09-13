@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_13_070450) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_13_103247) do
   create_table "bubbles", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_13_070450) do
     t.string "color"
     t.datetime "date"
     t.integer "user_id"
+    t.integer "position"
     t.index ["category_id"], name: "index_bubbles_on_category_id"
     t.index ["user_id"], name: "index_bubbles_on_user_id"
   end

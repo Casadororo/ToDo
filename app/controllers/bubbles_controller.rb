@@ -5,7 +5,7 @@ class BubblesController < ApplicationController
 
   # GET /bubbles or /bubbles.json
   def index
-    @bubbles = current_user.bubbles
+    @bubbles = current_user.bubbles.order(:position)
   end
 
   # GET /bubbles/1 or /bubbles/1.json
@@ -29,6 +29,7 @@ class BubblesController < ApplicationController
   # POST /bubbles or /bubbles.json
   def create
     @bubble = current_user.bubbles.build(bubble_params)
+    @bubble.position = 1
 
     respond_to do |format|
       if @bubble.save
@@ -77,6 +78,12 @@ class BubblesController < ApplicationController
     redirect_to root_path, notice: "Not Authorized To Edit This Bubble" if @bubble.nil?
   end
 
+  def update_position
+    @bubble = Bubble.find(params[:id])
+    @bubble.insert_at(bubble_params[:position].to_i)
+    head :ok
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -86,6 +93,6 @@ class BubblesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def bubble_params
-    params.require(:bubble).permit(:name, :description, :priority, :category_id, :color, :date)
+    params.require(:bubble).permit(:name, :description, :priority, :category_id, :color, :date, :position)
   end
 end
