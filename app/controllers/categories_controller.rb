@@ -1,9 +1,11 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+  before_action :correct_user, only: [:show, :edit, :update, :destroy]
 
   # GET /categories or /categories.json
   def index
-    @categories = Category.all
+    @categories = current_user.categories
   end
 
   # GET /categories/1 or /categories/1.json
@@ -12,7 +14,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/new
   def new
-    @category = Category.new
+    @category = current_user.categories.build
   end
 
   # GET /categories/1/edit
@@ -21,7 +23,7 @@ class CategoriesController < ApplicationController
 
   # POST /categories or /categories.json
   def create
-    @category = Category.new(category_params)
+    @category = current_user.categories.build(category_params)
 
     respond_to do |format|
       if @category.save
@@ -57,10 +59,17 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def correct_user
+    @category = current_user.categories.find_by(id: params[:id])
+    redirect_to root_path, notice: "Not Authorized To Edit This Category" if @category.nil?
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
       @category = Category.find(params[:id])
+      #@category = current_user.categories.find(params[:id])
+      #redirect_to root_path, notice: "Not Authorized To Edit This Category" if @category.nil?
       @bubbles = @category.bubbles
     end
 
